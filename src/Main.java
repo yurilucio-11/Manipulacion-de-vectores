@@ -89,6 +89,114 @@ System.out.println("==========================================");
 System.out.println("Mayor valor: " + mayor);
 System.out.println("Menor valor: " + menor);
 
+System.out.println("\n==========================================");
+System.out.println("MULTIPLOS DE UN NUMERO");
+System.out.println("==========================================");
+
+System.out.print("Ingrese el numero X: ");
+int x = scanner.nextInt();
+
+boolean hayMultiplos = false;
+
+if (x != 0) {
+
+    for (int i = 0; i < vector.length; i++) {
+
+        if (vector[i] % x == 0) {
+
+            if (!hayMultiplos) {
+                System.out.println("Multiplos encontrados:");
+            }
+
+            System.out.println(
+                "Posicion " + i + ": " + vector[i]
+            );
+
+            hayMultiplos = true;
+        }
+    }
+
+    if (!hayMultiplos) {
+        System.out.println(
+            "No hay multiplos de " + x + " en el vector."
+        );
+    }
+
+} else {
+
+    System.out.println(
+        "No se pueden calcular multiplos de cero."
+    );
+}
+
+int suma = 0;
+
+for (int i = 0; i < vector.length; i++) {
+    suma += vector[i];
+}
+
+System.out.println("\n==========================================");
+System.out.println("SUMA TOTAL");
+System.out.println("==========================================");
+
+System.out.println(
+    "La suma de todos los valores es: " + suma
+);
+
+double promedio = (double) suma / vector.length;
+
+int cantidadMayores = 0;
+
+for (int i = 0; i < vector.length; i++) {
+
+    if (vector[i] > promedio) {
+        cantidadMayores++;
+    }
+}
+
+System.out.println("\n==========================================");
+System.out.println("VALORES POR ENCIMA DEL PROMEDIO");
+System.out.println("==========================================");
+
+System.out.printf("Promedio: %.2f%n", promedio);
+
+if (cantidadMayores > 0) {
+
+    int[] vectorMayores = new int[cantidadMayores];
+
+    int posicion = 0;
+
+    for (int i = 0; i < vector.length; i++) {
+
+        if (vector[i] > promedio) {
+
+            vectorMayores[posicion] = vector[i];
+
+            posicion++;
+        }
+    }
+
+    System.out.println("Valores por encima del promedio:");
+
+    for (int i = 0; i < vectorMayores.length; i++) {
+
+        System.out.println(
+            "Posicion " + i + ": " + vectorMayores[i]
+        );
+    }
+
+    System.out.println(
+        "Cantidad de numeros por encima del promedio: "
+        + cantidadMayores
+    );
+
+} else {
+
+    System.out.println(
+        "No hay numeros mayores que el promedio."
+    );
+}
+
 
 scanner.close();
     
